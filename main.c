@@ -5,84 +5,19 @@
 
 void main()
 {
-    list myDesc;
-    
-
-    printf("----------Value Init----------\n");
-    printf("Main() myDesc Address: %p - %lu\n", &myDesc, sizeof(&myDesc));
-    printf("Main() firstNode Address: %p\n", &myDesc.firstNode);
-    printf("Main() lastNode Address: %p\n", &myDesc.lastNode);
-    printf("Main() firstNode Value: %p\n", myDesc.firstNode);
-    printf("Main() lastNode Value: %p\n", myDesc.lastNode);
-    valueInit(myDesc); 
-    puts("--------------------------------------------------------");
-    printf("Main() myDesc Address: %p\n", &myDesc);
-    printf("Main() firstNode Address: %p\n", &myDesc.firstNode);
-    printf("Main() lastNode Address: %p\n", &myDesc.lastNode);
-    printf("Main() firstNode Value: %p\n", myDesc.firstNode);
-    printf("Main() lastNode Value: %p\n", myDesc.lastNode);
-    
-
-    puts("\n\n\n----------Reference Init----------");
-    printf("Main() myDesc Address: %p\n", &myDesc);
-    printf("Main() firstNode Address: %p\n", &myDesc.firstNode);
-    printf("Main() lastNode Address: %p\n", &myDesc.lastNode);
-    printf("Main() firstNode Value: %p\n", myDesc.firstNode);
-    printf("Main() lastNode Value: %p\n", myDesc.lastNode);
-    referenceInit(&myDesc); 
-    puts("--------------------------------------------------------");
-    printf("Main() myDesc Address: %p\n", &myDesc);
-    printf("Main() firstNode Address: %p\n", &myDesc.firstNode);
-    printf("Main() lastNode Address: %p\n", &myDesc.lastNode);
-    printf("Main() firstNode Value: %p\n", myDesc.firstNode);
-    printf("Main() lastNode Value: %p\n", myDesc.lastNode);
-
-
     list *myPoiterDesc;
-    puts("\n\n\n----------Value Init with Poiter----------");
-    printf("Main() myPoiterDesc Address: %p - size(%lu)\n", &myPoiterDesc, sizeof(&myPoiterDesc));
-    printf("Main() myPoiterDesc Value: %p - size(%lu)\n", myPoiterDesc, sizeof(myPoiterDesc));
-
-
-    printf("Main() myPoiterDesc->firstNode Address: %p - size(%lu)\n", &myPoiterDesc->firstNode, sizeof(&myPoiterDesc->firstNode));
-    printf("Main() myPoiterDesc->firstNode Value: %p - size(%lu)\n", myPoiterDesc->firstNode, sizeof(myPoiterDesc->firstNode));
-
-    printf("Main() myPoiterDesc->lastNode Address: %p - size(%lu)\n", &myPoiterDesc->lastNode, sizeof(&myPoiterDesc->lastNode));
-    printf("Main() myPoiterDesc->lastNode Value: %p - size(%lu)\n", myPoiterDesc->lastNode, sizeof(myPoiterDesc->lastNode));
-
-    valueInitWithPointer(myPoiterDesc);
-    puts("----------------------------------------------------------------");
-
-    printf("Main() myPoiterDesc Address: %p - size(%lu)\n", &myPoiterDesc, sizeof(&myPoiterDesc));
-    printf("Main() myPoiterDesc Value: %p - size(%lu)\n", myPoiterDesc, sizeof(myPoiterDesc));
-
-    printf("Main() myPoiterDesc->firstNode Address: %p - size(%lu)\n", &myPoiterDesc->firstNode, sizeof(&myPoiterDesc->firstNode));
-    printf("Main() myPoiterDesc->firstNode Value: %p - size(%lu)\n", myPoiterDesc->firstNode, sizeof(myPoiterDesc->firstNode));
-
-    printf("Main() myPoiterDesc->lastNode Address: %p - size(%lu)\n", &myPoiterDesc->lastNode, sizeof(&myPoiterDesc->lastNode));
-    printf("Main() myPoiterDesc->lastNode Value: %p - size(%lu)\n", myPoiterDesc->lastNode, sizeof(myPoiterDesc->lastNode));
-
+    init(&myPoiterDesc);
     
-    puts("\n\n\n----------Reference Init with Poiter----------");
-    printf("Main() myPoiterDesc Address: %p - size(%lu)\n", &myPoiterDesc, sizeof(&myPoiterDesc));
-    printf("Main() myPoiterDesc Value: %p - size(%lu)\n", myPoiterDesc, sizeof(myPoiterDesc));
 
+    insertAfter(myPoiterDesc, 10);
+    insertAfter(myPoiterDesc, 11);
+    insertBefore(myPoiterDesc, 12);
+    insertBefore(myPoiterDesc, 13);
+    insertAfter(myPoiterDesc, 14);
 
-    printf("Main() myPoiterDesc->firstNode Address: %p - size(%lu)\n", &myPoiterDesc->firstNode, sizeof(&myPoiterDesc->firstNode));
-    printf("Main() myPoiterDesc->firstNode Value: %p - size(%lu)\n", myPoiterDesc->firstNode, sizeof(myPoiterDesc->firstNode));
+    display(myPoiterDesc);
 
-    printf("Main() myPoiterDesc->lastNode Address: %p - size(%lu)\n", &myPoiterDesc->lastNode, sizeof(&myPoiterDesc->lastNode));
-    printf("Main() myPoiterDesc->lastNode Value: %p - size(%lu)\n", myPoiterDesc->lastNode, sizeof(myPoiterDesc->lastNode));
-
-    referenceInitWithPointer(&myPoiterDesc);
-    puts("----------------------------------------------------------------");
-
-    printf("Main() myPoiterDesc Address: %p - size(%lu)\n", &myPoiterDesc, sizeof(&myPoiterDesc));
-    printf("Main() myPoiterDesc Value: %p - size(%lu)\n", myPoiterDesc, sizeof(myPoiterDesc));
-
-    printf("Main() myPoiterDesc->firstNode Address: %p - size(%lu)\n", &myPoiterDesc->firstNode, sizeof(&myPoiterDesc->firstNode));
-    printf("Main() myPoiterDesc->firstNode Value: %p - size(%lu)\n", myPoiterDesc->firstNode, sizeof(myPoiterDesc->firstNode));
-
-    printf("Main() myPoiterDesc->lastNode Address: %p - size(%lu)\n", &myPoiterDesc->lastNode, sizeof(&myPoiterDesc->lastNode));
-    printf("Main() myPoiterDesc->lastNode Value: %p - size(%lu)\n", myPoiterDesc->lastNode, sizeof(myPoiterDesc->lastNode));
+    deleteNode(myPoiterDesc, 12);
+    
+    display(myPoiterDesc);
 }

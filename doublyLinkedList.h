@@ -6,7 +6,6 @@ struct doublyLinkedNode
 };
 typedef struct doublyLinkedNode node;
 
-
 struct doublyLinkedList
 {
     struct doublyLinkedNode *firstNode;
@@ -14,139 +13,94 @@ struct doublyLinkedList
 };
 typedef struct doublyLinkedList list;
 
-
-void valueInit(list desc)
-{    
-    puts("----------------------------------------------------------------");
-    desc.firstNode = desc.lastNode = NULL;
-
-    printf("Init() desc Address: %p\n", &desc);
-    //printf("Init() desc Value: %p\n", desc); //Erro
-
-    printf("Init() firstNode Address: %p\n", &desc.firstNode);
-    printf("Init() lastNode Address: %p\n", &desc.lastNode);
-
-    printf("Init() firstNode Value: %p\n", desc.firstNode);
-    printf("Init() lastNode Value: %p\n", desc.lastNode);
-}
-
-
-void referenceInit(list *desc)
-{    
-    puts("----------------------------------------------------------------");
-    (*desc).firstNode = (*desc).lastNode = NULL;
-
-    printf("Init() desc Address: %p\n", &desc);
-    printf("Init() desc Value: %p\n", desc);
-
-    printf("Init() firstNode Address: %p\n", &(*desc).firstNode);
-    printf("Init() lastNode Address: %p\n", &(*desc).lastNode);
-
-    printf("Init() firstNode Value: %p\n", (*desc).firstNode);
-    printf("Init() lastNode Value: %p\n", (*desc).lastNode);
-}
-
-void valueInitWithPointer(list *desc)
+void init(list **desc)
 {
-
-    puts("----------------------------------------------------------------");
-    printf("Init() desc Address: %p - size(%lu)\n", &desc, sizeof(&desc));
-    printf("Init() desc Value: %p - size(%lu)\n", desc, sizeof(desc));
-
-
-    printf("Init() desc->firstNode Address: %p - size(%lu)\n", &desc->firstNode, sizeof(&desc->firstNode));
-    printf("Init() desc->firstNode Value: %p - size(%lu)\n", desc->firstNode, sizeof(desc->firstNode));
-
-    printf("Init() desc->lastNode Address: %p - size(%lu)\n", &desc->lastNode, sizeof(&desc->lastNode));
-    printf("Init() desc->lastNode Value: %p - size(%lu)\n", desc->lastNode, sizeof(desc->lastNode));
-
-    puts("----------------------------------------------------------------");
-
-    list *newDesc = (list*) malloc(sizeof(list));
-    printf("Init() newDesc Address: %p - size(%lu)\n", &newDesc, sizeof(&newDesc));
-    printf("Init() newDesc Value: %p - size(%lu)\n", newDesc, sizeof(newDesc));
-
-    printf("Init() newDesc->firstNode Address: %p - size(%lu)\n", &newDesc->firstNode, sizeof(&newDesc->firstNode));
-    printf("Init() newDesc->firstNode Value: %p - size(%lu)\n", newDesc->firstNode, sizeof(newDesc->firstNode));
-
-    printf("Init() newDesc->lastNode Address: %p - size(%lu)\n", &newDesc->lastNode, sizeof(&newDesc->lastNode));
-    printf("Init() newDesc->lastNode Value: %p - size(%lu)\n", newDesc->lastNode, sizeof(newDesc->lastNode));
-    
-    puts("----------------------------------------------------------------");
+    list *newDesc = (list *)malloc(sizeof(list));
     newDesc->firstNode = newDesc->lastNode = NULL;
-    printf("Init() newDesc Address: %p - size(%lu)\n", &newDesc, sizeof(&newDesc));
-    printf("Init() newDesc Value: %p - size(%lu)\n", newDesc, sizeof(newDesc));
-
-    printf("Init() newDesc->firstNode Address: %p - size(%lu)\n", &newDesc->firstNode, sizeof(&newDesc->firstNode));
-    printf("Init() newDesc->firstNode Value: %p - size(%lu)\n", newDesc->firstNode, sizeof(newDesc->firstNode));
-
-    printf("Init() newDesc->lastNode Address: %p - size(%lu)\n", &newDesc->lastNode, sizeof(&newDesc->lastNode));
-    printf("Init() newDesc->lastNode Value: %p - size(%lu)\n", newDesc->lastNode, sizeof(newDesc->lastNode));
-
-
-
-    puts("----------------------------------------------------------------");
-    desc = newDesc;
-    printf("Init() desc Address: %p - size(%lu)\n", &desc, sizeof(&desc));
-    printf("Init() desc Value: %p - size(%lu)\n", desc, sizeof(desc));
-
-
-    printf("Init() desc->firstNode Address: %p - size(%lu)\n", &desc->firstNode, sizeof(&desc->firstNode));
-    printf("Init() desc->firstNode Value: %p - size(%lu)\n", desc->firstNode, sizeof(desc->firstNode));
-
-    printf("Init() desc->lastNode Address: %p - size(%lu)\n", &desc->lastNode, sizeof(&desc->lastNode));
-    printf("Init() desc->lastNode Value: %p - size(%lu)\n", desc->lastNode, sizeof(desc->lastNode));
-}
-
-
-void referenceInitWithPointer(list **desc)
-{
-
-    puts("----------------------------------------------------------------");
-    printf("Init() desc Address: %p - size(%lu)\n", &desc, sizeof(&desc));
-    printf("Init() desc Value: %p - size(%lu)\n", desc, sizeof(desc));
-
-
-    printf("Init() desc->firstNode Address: %p - size(%lu)\n", &(*desc)->firstNode, sizeof(&(*desc)->firstNode));
-    printf("Init() desc->firstNode Value: %p - size(%lu)\n", (*desc)->firstNode, sizeof((*desc)->firstNode));
-
-    printf("Init() desc->lastNode Address: %p - size(%lu)\n", &(*desc)->lastNode, sizeof(&(*desc)->lastNode));
-    printf("Init() desc->lastNode Value: %p - size(%lu)\n", (*desc)->lastNode, sizeof((*desc)->lastNode));
-
-    puts("----------------------------------------------------------------");
-
-    list *newDesc = (list*) malloc(sizeof(list));
-    printf("Init() newDesc Address: %p - size(%lu)\n", &newDesc, sizeof(&newDesc));
-    printf("Init() newDesc Value: %p - size(%lu)\n", newDesc, sizeof(newDesc));
-
-    printf("Init() newDesc->firstNode Address: %p - size(%lu)\n", &newDesc->firstNode, sizeof(&newDesc->firstNode));
-    printf("Init() newDesc->firstNode Value: %p - size(%lu)\n", newDesc->firstNode, sizeof(newDesc->firstNode));
-
-    printf("Init() newDesc->lastNode Address: %p - size(%lu)\n", &newDesc->lastNode, sizeof(&newDesc->lastNode));
-    printf("Init() newDesc->lastNode Value: %p - size(%lu)\n", newDesc->lastNode, sizeof(newDesc->lastNode));
-    
-    puts("----------------------------------------------------------------");
-    newDesc->firstNode = newDesc->lastNode = NULL;
-    printf("Init() newDesc Address: %p - size(%lu)\n", &newDesc, sizeof(&newDesc));
-    printf("Init() newDesc Value: %p - size(%lu)\n", newDesc, sizeof(newDesc));
-
-    printf("Init() newDesc->firstNode Address: %p - size(%lu)\n", &newDesc->firstNode, sizeof(&newDesc->firstNode));
-    printf("Init() newDesc->firstNode Value: %p - size(%lu)\n", newDesc->firstNode, sizeof(newDesc->firstNode));
-
-    printf("Init() newDesc->lastNode Address: %p - size(%lu)\n", &newDesc->lastNode, sizeof(&newDesc->lastNode));
-    printf("Init() newDesc->lastNode Value: %p - size(%lu)\n", newDesc->lastNode, sizeof(newDesc->lastNode));
-
-
-
-    puts("----------------------------------------------------------------");
     *desc = newDesc;
-    printf("Init() desc Address: %p - size(%lu)\n", &desc, sizeof(&desc));
-    printf("Init() desc Value: %p - size(%lu)\n", desc, sizeof(desc));
+}
 
+node *createNode(int info)
+{
+    node *newNode = (node *)malloc(sizeof(node));
+    newNode->prev = newNode->next = NULL;
+    newNode->data = info;
+    return newNode;
+}
 
-    printf("Init() desc->firstNode Address: %p - size(%lu)\n", &(*desc)->firstNode, sizeof(&(*desc)->firstNode));
-    printf("Init() desc->firstNode Value: %p - size(%lu)\n", (*desc)->firstNode, sizeof((*desc)->firstNode));
+void insertBefore(list *desc, int info)
+{
+    if (desc->firstNode == NULL)
+        desc->firstNode = desc->lastNode = createNode(info);
+    else
+    {
+        desc->firstNode->prev = createNode(info);
+        desc->firstNode->prev->next = desc->firstNode;
+        desc->firstNode = desc->firstNode->prev;
+    }
+}
 
-    printf("Init() desc->lastNode Address: %p - size(%lu)\n", &(*desc)->lastNode, sizeof(&(*desc)->lastNode));
-    printf("Init() desc->lastNode Value: %p - size(%lu)\n", (*desc)->lastNode, sizeof((*desc)->lastNode));
+void insertAfter(list *desc, int info)
+{
+    if (desc->lastNode == NULL)
+        desc->lastNode = desc->firstNode = createNode(info);
+    else
+    {
+        desc->lastNode->next = createNode(info);
+        desc->lastNode->next->prev = desc->lastNode;
+        desc->lastNode = desc->lastNode->next;
+    }
+}
+
+node *searchNode(list *desc, int info)
+{
+    node *aux = desc->firstNode;
+    while (aux != NULL && aux->data != info)
+        aux = aux->next;
+
+    return aux;
+}
+
+char isEmpty(list *desc)
+{
+    return desc->firstNode == NULL;
+}
+
+void deleteNode(list *desc, int info)
+{
+    node *node = searchNode(desc, info);
+    if (node != NULL)
+    {
+        if (node == desc->firstNode && node == desc->lastNode)
+            desc->firstNode = desc->lastNode = NULL;
+        else
+        {
+            if (node == desc->firstNode)
+            {
+                desc->firstNode = node->next;
+                desc->firstNode->prev = node->prev;
+            }
+            else if (node == desc->lastNode)
+            {
+                desc->lastNode = node->prev;
+                desc->lastNode->next = node->next;
+            }
+            else
+            {
+                node->prev->next = node->next;
+                node->next->prev = node->prev;
+            }
+        }
+        free(node);
+    }
+}
+
+void display(list *desc)
+{
+    node* node = desc->firstNode;
+    while (node != NULL) {
+        printf("[%d]", node->data);
+        node = node->next;
+    }
+    putchar('\n');
 }
