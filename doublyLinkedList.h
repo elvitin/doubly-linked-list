@@ -52,23 +52,22 @@ void insertAfter(list *desc, int info)
     }
 }
 
-node *searchNode(list *desc, int info)
+node *searchNode(list desc, int info)
 {
-    node *aux = desc->firstNode;
-    while (aux != NULL && aux->data != info)
-        aux = aux->next;
+    while (desc.firstNode != NULL && desc.firstNode->data != info)
+        desc.firstNode = desc.firstNode->next;
 
-    return aux;
+    return desc.firstNode;
 }
 
-char isEmpty(list *desc)
+char isEmpty(list desc)
 {
-    return desc->firstNode == NULL;
+    return desc.firstNode == NULL;
 }
 
 void deleteNode(list *desc, int info)
 {
-    node *node = searchNode(desc, info);
+    node *node = searchNode(*desc, info);
     if (node != NULL)
     {
         if (node == desc->firstNode && node == desc->lastNode)
@@ -95,12 +94,21 @@ void deleteNode(list *desc, int info)
     }
 }
 
-void display(list *desc)
+/* void display(list *desc)
 {
     node* node = desc->firstNode;
     while (node != NULL) {
         printf("[%d]", node->data);
         node = node->next;
+    }
+    putchar('\n');
+} */
+
+void display(list desc)
+{
+    while (desc.firstNode != NULL) {
+        printf("[%d]", desc.firstNode->data);
+        desc.firstNode = desc.firstNode->next;
     }
     putchar('\n');
 }

@@ -15,9 +15,11 @@ void main()
     insertBefore(myPoiterDesc, 13);
     insertAfter(myPoiterDesc, 14);
 
-    display(myPoiterDesc);
+    //display(myPoiterDesc);
+    display(*myPoiterDesc);
 
-    deleteNode(myPoiterDesc, 12);
+    deleteNode(myPoiterDesc, 14);
     
-    display(myPoiterDesc);
+    //display(myPoiterDesc);
+    display(*myPoiterDesc);
 }
