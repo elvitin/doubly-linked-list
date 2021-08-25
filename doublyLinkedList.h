@@ -25,7 +25,23 @@ node *createNode(int info)
     newNode->data = info;
     return newNode;
 }
-
+/*
+void inserirNoInicio (list *LD, int x)
+{
+	node *nova = (node *) malloc (sizeof(node));
+	nova->data = x;
+	nova->prev = NULL;
+	nova->next = (*LD).firstNode;
+	
+	if ((*LD).firstNode == NULL)
+		(*LD).firstNode = (*LD).lastNode = nova;
+	else
+	{
+		(*LD).firstNode->prev = nova;
+		(*LD).firstNode = nova;
+	}
+}
+*/
 void insertBefore(list *desc, int info)
 {
     if (desc->firstNode == NULL)
